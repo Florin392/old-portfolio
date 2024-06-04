@@ -1,11 +1,12 @@
 import "./App.css";
+import AppRouter from "./AppRouter";
+import ThemeProvider from "./providers/ThemeProvider";
 
 function App() {
-
   return (
-    <>
-      <h1>hello world</h1>
-    </>
+    <ThemeProvider>
+      <AppRouter />
+    </ThemeProvider>
   );
 }
 
