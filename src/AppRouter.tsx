@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { AppRoutes } from "./enums/AppRoutes";
 import HomePage from "./pages/Home/HomePage";
 import AboutPage from "./pages/About/AboutPage";
@@ -8,7 +8,7 @@ import Layout from "./components/Layout";
 
 export default function AppRouter() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path={AppRoutes.Home} element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -26,6 +26,6 @@ export default function AppRouter() {
           <Route index element={<WorkPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
