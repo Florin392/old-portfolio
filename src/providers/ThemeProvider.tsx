@@ -9,7 +9,7 @@ export default function ThemeProvider({ children }: ThemeProviderType) {
   const theme = createTheme({
     palette: {
       background: {
-        default: "#f5f5dc",
+        default: "#ece7e1",
       },
       text: {
         primary: "#000000",
