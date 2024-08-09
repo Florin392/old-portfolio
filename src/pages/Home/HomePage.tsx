@@ -1,10 +1,11 @@
 import { Grid, styled, Typography } from "@mui/material";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 const StyledName = styled(Typography)({
   fontFamily: "Montserrat,sans-serif",
   fontWeight: 400,
-  fontSize: "1.5rem",
+  fontSize: "2rem",
   letterSpacing: 0.2,
   lineHeight: "4rem",
   "@media screen and (min-width:1836px )": {
@@ -13,9 +14,9 @@ const StyledName = styled(Typography)({
 });
 
 const StyledDescription = styled(Typography)({
-  fontSize: "1rem",
+  fontSize: "1.1rem",
   fontFamily: "Montserrat,sans-serif",
-  fontWeight: 300,
+  fontWeight: 200,
   letterSpacing: 0.8,
   lineHeight: "3rem",
   "@media screen and (min-width:1836px )": {
@@ -52,46 +53,45 @@ const StyledRightSide = styled(Typography)({
 export default function HomePage() {
   const navigate = useNavigate();
 
+  const handleNavigation = useCallback(
+    (path: string) => {
+      navigate(path);
+    },
+    [navigate]
+  );
+
   return (
     <Grid container height={{ md: "100vh" }}>
       <Grid
         item
         xs={12}
         md={4}
-        px={{ xs: 4, md: 2 }}
         py={{ xs: 7, md: 0 }}
-        height={{ md: "70%", lg: "80%" }}
+        mb={{ xs: 0, md: 25 }}
         alignContent={{ xs: "start", md: "end" }}
       >
         <Grid item>
           <StyledName>Florin Iordache</StyledName>
-          <StyledDescription>Front-end Developer</StyledDescription>
+          <StyledDescription>Frontend Developer</StyledDescription>
           <StyledDescription>
-            Stack: React, TypeScript, HTML, CSS
+            Stack: React, TypeScript, Redux, HTML, CSS, SASS
           </StyledDescription>
-          <StyledDescription>Currently working -</StyledDescription>
-          <StyledDescription>Company: -</StyledDescription>
         </Grid>
       </Grid>
 
-      <Grid
-        item
-        xs={12}
-        md={8}
-        px={{ xs: 4, md: 2 }}
-        pb={2}
-        alignContent={{ xs: "start", md: "center" }}
-      >
+      <Grid item xs={12} md={8} alignContent={{ xs: "start", md: "center" }}>
         <Grid>
-          <StyledRightSide onClick={() => navigate("/work")}>
-            work
-          </StyledRightSide>
-          <StyledRightSide onClick={() => navigate("/about")}>
-            about
-          </StyledRightSide>
-          <StyledRightSide onClick={() => navigate("/contact")}>
-            contact
-          </StyledRightSide>
+          <Grid>
+            <StyledRightSide onClick={() => handleNavigation("/work")}>
+              work
+            </StyledRightSide>
+            <StyledRightSide onClick={() => handleNavigation("/about")}>
+              about
+            </StyledRightSide>
+            <StyledRightSide onClick={() => handleNavigation("/contact")}>
+              contact
+            </StyledRightSide>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
