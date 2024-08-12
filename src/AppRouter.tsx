@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { AppRoutes } from "./enums/AppRoutes";
 import HomePage from "./pages/Home/HomePage";
 import AboutPage from "./pages/About/AboutPage";
@@ -8,24 +8,22 @@ import Layout from "./components/Layout";
 
 export default function AppRouter() {
   return (
-    <HashRouter>
-      <Routes>
-        <Route path={AppRoutes.Home} element={<Layout />}>
-          <Route index element={<HomePage />} />
-        </Route>
+    <Routes>
+      <Route path={AppRoutes.Home} element={<Layout />}>
+        <Route index element={<HomePage />} />
+      </Route>
 
-        <Route path={AppRoutes.About} element={<Layout />}>
-          <Route index element={<AboutPage />} />
-        </Route>
+      <Route path={AppRoutes.About} element={<Layout />}>
+        <Route index element={<AboutPage />} />
+      </Route>
 
-        <Route path={AppRoutes.Contact} element={<Layout />}>
-          <Route index element={<ContactPage />} />
-        </Route>
+      <Route path={AppRoutes.Contact} element={<Layout />}>
+        <Route index element={<ContactPage />} />
+      </Route>
 
-        <Route path={AppRoutes.Work} element={<Layout />}>
-          <Route index element={<WorkPage />} />
-        </Route>
-      </Routes>
-    </HashRouter>
+      <Route path={AppRoutes.Work} element={<Layout />}>
+        <Route index element={<WorkPage />} />
+      </Route>
+    </Routes>
   );
 }
