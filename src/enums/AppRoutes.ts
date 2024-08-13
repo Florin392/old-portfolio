@@ -3,4 +3,5 @@ export enum AppRoutes {
   About = "about",
   Contact = "contact",
   Work = "work",
+  Error = "error"
 }

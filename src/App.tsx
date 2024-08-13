@@ -3,15 +3,18 @@ import "./App.css";
 import AppRouter from "./AppRouter";
 import ThemeProvider from "./providers/ThemeProvider";
 import { HashRouter } from "react-router-dom";
+import ErrorBoundary from "./components/ErrorHandling";
 
 function App() {
   return (
-    <HashRouter>
-      <ThemeProvider>
-        <CssBaseline />
-        <AppRouter />
-      </ThemeProvider>
-    </HashRouter>
+    <ErrorBoundary>
+      <HashRouter>
+        <ThemeProvider>
+          <CssBaseline />
+          <AppRouter />
+        </ThemeProvider>
+      </HashRouter>
+    </ErrorBoundary>
   );
 }
 
