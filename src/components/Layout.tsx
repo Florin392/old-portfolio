@@ -1,31 +1,34 @@
 import { Outlet, useLocation } from "react-router-dom";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import { Grid } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import LoadingPage from "./LoadingPage/LoadingPage";
+import { AppRoutes } from "../enums/AppRoutes";
 
 export default function Layout() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const location = useLocation();
+
   const [animationClass, setAnimationClass] = useState("leftToRight");
-  const [backgroundColor, setBackgroundColor] = useState("#000000");
+
+  const backgroundColor = useMemo(() => {
+    return location.pathname === AppRoutes.Home ? "#E8EAF0" : "#000000";
+  }, [location.pathname]);
 
   useEffect(() => {
-    const pathname = location.pathname;
-    const isNavigatingToHome = pathname === "/";
+    const isNavigatingToHome = location.pathname === AppRoutes.Home;
 
     setIsTransitioning(true);
     setAnimationClass(isNavigatingToHome ? "rightToLeft" : "leftToRight");
 
     const handleTransition = setTimeout(() => {
       setIsTransitioning(false);
-      setBackgroundColor(isNavigatingToHome ? "#E8EAF0" : "#000000");
     }, 1000);
 
     return () => {
       clearTimeout(handleTransition);
     };
-  }, [location]);
+  }, [location.pathname]);
 
   return (
     <>
@@ -38,21 +41,19 @@ export default function Layout() {
         style={{ backgroundColor }}
       >
         {!isTransitioning && (
-          <Grid
-            container
-            // px={{ xs: 2, md: 0, xl: 12 }}
-            //  mx={{ xs: 2, md: 0 }}
-          >
-            <Grid item xs={12} md={1} px={{ md: 2 }}>
+          <Grid container>
+            <Grid item xs={12} md={1} py={1} mx={{ xs: 2, md: 0 }}>
               <NavigationBar />
             </Grid>
             <Grid
               item
               xs={12}
               md={11}
-              px={{ xs: 2, md: 0, xl: 12 }}
+              lg={10}
               mx={{ xs: 2, md: 0 }}
-              className={location.pathname !== "/" ? "text-blur" : ""}
+              className={
+                location.pathname !== AppRoutes.Home ? "text-blur" : ""
+              }
             >
               <Outlet />
             </Grid>

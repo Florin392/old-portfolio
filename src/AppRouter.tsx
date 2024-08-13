@@ -5,24 +5,19 @@ import AboutPage from "./pages/About/AboutPage";
 import ContactPage from "./pages/Contact/ContactPage";
 import WorkPage from "./pages/Work/WorkPage";
 import Layout from "./components/Layout";
+import ErrorPage from "./pages/ErrorPage";
 
 export default function AppRouter() {
   return (
     <Routes>
-      <Route path={AppRoutes.Home} element={<Layout />}>
-        <Route index element={<HomePage />} />
-      </Route>
+      <Route path="*" element={<ErrorPage />} />
 
-      <Route path={AppRoutes.About} element={<Layout />}>
-        <Route index element={<AboutPage />} />
-      </Route>
-
-      <Route path={AppRoutes.Contact} element={<Layout />}>
-        <Route index element={<ContactPage />} />
-      </Route>
-
-      <Route path={AppRoutes.Work} element={<Layout />}>
-        <Route index element={<WorkPage />} />
+      <Route element={<Layout />}>
+        <Route path={AppRoutes.Home} element={<HomePage />} />
+        <Route path={AppRoutes.About} element={<AboutPage />} />
+        <Route path={AppRoutes.Contact} element={<ContactPage />} />
+        <Route path={AppRoutes.Work} element={<WorkPage />} />
+        <Route path={AppRoutes.Error} element={<ErrorPage />} />
       </Route>
     </Routes>
   );
