@@ -33,8 +33,8 @@ export default function NavigationBar() {
       container
       direction={{ xs: "row", md: "row-reverse" }}
       alignItems="center"
-      textAlign="center"
-      pb={{ md: 10 }}
+      justifyContent="space-between"
+      pb={{ md: 12 }}
       px={{ xs: 2, md: 0 }}
       sx={{
         position: { md: "fixed" },
@@ -47,16 +47,16 @@ export default function NavigationBar() {
       <Grid
         container
         item
-        xs={8}
-        md={9}
+        xs={9}
+        md={8}
         py={{ xs: 2, md: 0 }}
         direction={{ xs: "row", md: "row-reverse" }}
         alignItems="center"
-        textAlign={{ xs: "start", md: "center" }}
+        textAlign={{ xs: "start", md: "end" }}
       >
         {isHomePage ? (
           <>
-            <Grid item xs={4} md={4}>
+            <Grid item xs={4} md={3}>
               <Typography
                 component="a"
                 href="https://www.linkedin.com/in/florin-iordache-2b998b166/"
@@ -67,7 +67,7 @@ export default function NavigationBar() {
                 LinkedIn
               </Typography>
             </Grid>
-            <Grid item xs={4} md={4}>
+            <Grid item xs={4} md={3} pl={{ xs: 1, md: 0 }}>
               <Typography
                 component="a"
                 href="https://github.com/Florin392"
@@ -80,14 +80,14 @@ export default function NavigationBar() {
             </Grid>
           </>
         ) : (
-          <Grid item xs={3}>
+          <Grid item xs={4} md={3}>
             <Typography sx={linkStyles} onClick={handleNavigateHome}>
               Home
             </Typography>
           </Grid>
         )}
 
-        <Grid item xs={4} md={3} height={1.1}>
+        <Grid item xs={4} md={3} height={1.1} pl={1}>
           <Divider
             orientation="vertical"
             sx={{ marginRight: 1, backgroundColor: theme.palette.text.primary }}
@@ -95,7 +95,7 @@ export default function NavigationBar() {
         </Grid>
       </Grid>
 
-      <Grid item xs={4} md={3} textAlign={{ xs: "right", md: "left" }}>
+      <Grid item xs={3} md={2} textAlign={{ xs: "right", md: "left" }}>
         <Typography
           variant="caption"
           sx={{
