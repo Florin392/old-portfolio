@@ -15,7 +15,7 @@ export default function NavigationBar() {
   }, [navigate]);
 
   const linkStyles = {
-    fontSize: "12px",
+    fontSize: "1rem",
     fontFamily: "Montserrat",
     fontWeight: 500,
     textTransform: "uppercase",
@@ -33,7 +33,6 @@ export default function NavigationBar() {
       container
       direction={{ xs: "row", md: "row-reverse" }}
       alignItems="center"
-      justifyContent={{ xs: "space-between" }}
       textAlign="center"
       pb={{ md: 10 }}
       px={{ xs: 2, md: 0 }}
@@ -57,7 +56,7 @@ export default function NavigationBar() {
       >
         {isHomePage ? (
           <>
-            <Grid item xs={3} md={4}>
+            <Grid item xs={4} md={4}>
               <Typography
                 component="a"
                 href="https://www.linkedin.com/in/florin-iordache-2b998b166/"
@@ -68,7 +67,7 @@ export default function NavigationBar() {
                 LinkedIn
               </Typography>
             </Grid>
-            <Grid item xs={3} md={4}>
+            <Grid item xs={4} md={4}>
               <Typography
                 component="a"
                 href="https://github.com/Florin392"
@@ -88,7 +87,7 @@ export default function NavigationBar() {
           </Grid>
         )}
 
-        <Grid item xs={4} md={3} height={1.1} pl={1}>
+        <Grid item xs={4} md={3} height={1.1}>
           <Divider
             orientation="vertical"
             sx={{ marginRight: 1, backgroundColor: theme.palette.text.primary }}
