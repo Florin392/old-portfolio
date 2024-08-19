@@ -19,8 +19,6 @@ export default function ErrorPage() {
         alignItems: "center",
         height: "100vh",
         textAlign: "center",
-        backgroundColor: "#000000",
-        color: "#ffffff",
       }}
     >
       <Typography variant="h3" gutterBottom>
