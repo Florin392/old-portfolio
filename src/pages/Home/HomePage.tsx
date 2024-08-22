@@ -1,51 +1,31 @@
 import { Grid, Typography } from "@mui/material";
+import { AppRoutes } from "../../enums/AppRoutes";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { AppRoutes } from "../../enums/AppRoutes";
+import {
+  homeDescriptionStyle,
+  homeRightSectionStyle,
+  homeTitleStyle,
+} from "./homePageStyle";
 
 export default function HomePage() {
-  const navigate = useNavigate();
+  const navigation = useNavigate();
 
-  const handleNavigation = useCallback(
-    (path: string) => {
-      navigate(path);
-    },
-    [navigate]
+  const navigateToWork = useCallback(
+    () => navigation(AppRoutes.Work),
+    [navigation]
+  );
+  const navigateToAbout = useCallback(
+    () => navigation(AppRoutes.About),
+    [navigation]
+  );
+  const navigateToContact = useCallback(
+    () => navigation(AppRoutes.Contact),
+    [navigation]
   );
 
-  const nameStyle = {
-    fontFamily: "Montserrat, sans-serif",
-    fontWeight: 400,
-    fontSize: { xs: "2rem", md: "2.2rem" },
-    letterSpacing: 1,
-    lineHeight: "4rem",
-  };
-
-  const descriptionStyle = {
-    fontSize: { xs: "1.1rem", md: "1.3rem" },
-    fontFamily: "Montserrat, sans-serif",
-    fontWeight: 200,
-    letterSpacing: 0.5,
-    lineHeight: "3rem",
-  };
-
-  const rightSideStyle = {
-    fontSize: { xs: "17vw", md: "12vw", xl: "10vw" },
-    fontFamily: "Pixelify Sans",
-    fontWeight: 300,
-    textTransform: "uppercase",
-    lineHeight: "1.2em",
-    transition: "transform 0.5s ease",
-    textAlign: "left",
-    cursor: "pointer",
-    "&:hover": {
-      fontStyle: "italic",
-      transform: "translateX(5px)",
-    },
-  };
-
   return (
-    <Grid container height={{ xs: "auto", md: "90vh" }}>
+    <Grid container height={{ xs: "auto", md: "90vh" }} ml={{ lg: -6 }}>
       <Grid
         item
         xs={12}
@@ -54,17 +34,15 @@ export default function HomePage() {
         flexDirection="column"
         justifyContent="flex-end"
         alignItems={{ xs: "flex-start" }}
-        py={{ xs: 7, md: 2 }}
+        textAlign={{ xs: "left", md: "left" }}
+        height={{ md: "auto", lg: "79%", xl: "80%" }}
         mb={{ xs: 0, md: 25 }}
-        pl={{ xs: 2, md: 6 }}
-        sx={{
-          textAlign: { xs: "left", md: "left" },
-          height: { md: "auto", lg: "79%", xl: "80%" },
-        }}
+        py={{ xs: 6, md: 2 }}
+        px={{ lg: 2, xxl: 8 }}
       >
-        <Typography sx={nameStyle}>Florin Iordache</Typography>
-        <Typography sx={descriptionStyle}>Frontend Developer</Typography>
-        <Typography sx={descriptionStyle}>
+        <Typography sx={homeTitleStyle}>Florin Iordache</Typography>
+        <Typography sx={homeDescriptionStyle}>Frontend Developer</Typography>
+        <Typography sx={homeDescriptionStyle}>
           Stack: React, TypeScript, Redux, HTML, CSS, SASS
         </Typography>
       </Grid>
@@ -73,28 +51,18 @@ export default function HomePage() {
         item
         xs={12}
         md={8}
+        px={{ md: 2 }}
         display="flex"
         flexDirection="column"
         justifyContent="center"
-        alignItems={{ xs: "flex-start" }}
-        pl={{ xs: 2, md: 2 }}
       >
-        <Typography
-          sx={rightSideStyle}
-          onClick={() => handleNavigation(AppRoutes.Work)}
-        >
+        <Typography sx={homeRightSectionStyle} onClick={navigateToWork}>
           work
         </Typography>
-        <Typography
-          sx={rightSideStyle}
-          onClick={() => handleNavigation(AppRoutes.About)}
-        >
+        <Typography sx={homeRightSectionStyle} onClick={navigateToAbout}>
           about
         </Typography>
-        <Typography
-          sx={rightSideStyle}
-          onClick={() => handleNavigation(AppRoutes.Contact)}
-        >
+        <Typography sx={homeRightSectionStyle} onClick={navigateToContact}>
           contact
         </Typography>
       </Grid>

@@ -2,6 +2,9 @@ import { Divider, Grid, Typography, useTheme } from "@mui/material";
 import { useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../enums/AppRoutes";
+import { GITHUB_URL, LINKEDIN_URL } from "../../constants/urls";
+import { projectNameCaptionStyle } from "../../pages/Work/WorkPageStyle";
+import { baseStyle } from "../../constants/baseStyle";
 
 export default function NavigationBar() {
   const navigate = useNavigate();
@@ -9,18 +12,24 @@ export default function NavigationBar() {
   const theme = useTheme();
 
   const isHomePage = location.pathname === AppRoutes.Home;
+  const isWorkPage = location.pathname === AppRoutes.Work;
+  const isProjectPage = location.pathname.startsWith("/project/");
 
-  const handleNavigateHome = useCallback(() => {
-    navigate(AppRoutes.Home);
-  }, [navigate]);
+  const handleNavigate = useCallback(() => {
+    if (isProjectPage) {
+      navigate(AppRoutes.Work);
+    } else if (isWorkPage) {
+      navigate(AppRoutes.Home);
+    } else {
+      navigate(AppRoutes.Home);
+    }
+  }, [navigate, isProjectPage, isWorkPage]);
 
-  const linkStyles = {
-    fontSize: "1rem",
-    fontFamily: "Montserrat",
-    fontWeight: 500,
+  const navigationLinksStyle = {
+    ...baseStyle,
+    fontSize: { xs: ".9rem", md: "1rem" },
     textTransform: "uppercase",
-    textDecoration: "none",
-    letterSpacing: 1,
+    letterSpacing: 3,
     cursor: "pointer",
     color: theme.palette.text.primary,
     "&:hover": {
@@ -40,7 +49,7 @@ export default function NavigationBar() {
         position: { md: "fixed" },
         rotate: { md: "180deg" },
         writingMode: { md: "vertical-rl" },
-        width: { md: "8%", xl: "6%" },
+        width: { md: "4%" },
         height: { md: "90%" },
       }}
     >
@@ -59,10 +68,10 @@ export default function NavigationBar() {
             <Grid item xs={4} md={3}>
               <Typography
                 component="a"
-                href="https://www.linkedin.com/in/florin-iordache-2b998b166/"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                sx={linkStyles}
+                sx={navigationLinksStyle}
               >
                 LinkedIn
               </Typography>
@@ -70,18 +79,24 @@ export default function NavigationBar() {
             <Grid item xs={4} md={3} pl={{ xs: 1, md: 0 }}>
               <Typography
                 component="a"
-                href="https://github.com/Florin392"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                sx={linkStyles}
+                sx={navigationLinksStyle}
               >
                 Github
               </Typography>
             </Grid>
           </>
+        ) : isProjectPage ? (
+          <Grid item xs={4} md={3}>
+            <Typography sx={navigationLinksStyle} onClick={handleNavigate}>
+              Work
+            </Typography>
+          </Grid>
         ) : (
           <Grid item xs={4} md={3}>
-            <Typography sx={linkStyles} onClick={handleNavigateHome}>
+            <Typography sx={navigationLinksStyle} onClick={handleNavigate}>
               Home
             </Typography>
           </Grid>
@@ -99,12 +114,12 @@ export default function NavigationBar() {
         <Typography
           variant="caption"
           sx={{
-            fontSize: "10px",
-            letterSpacing: "3px",
+            ...projectNameCaptionStyle,
+            letterSpacing: 4,
             color: theme.palette.text.primary,
           }}
         >
-          ©2024
+          ©/2024
         </Typography>
       </Grid>
     </Grid>

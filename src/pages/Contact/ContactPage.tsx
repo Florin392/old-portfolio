@@ -1,20 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "../../constants/urls";
-
-const titleStyle = {
-  fontSize: { xs: "10rem", md: "22rem", lg: "26rem", xl: "32rem" },
-  fontFamily: "Indie Flower",
-  letterSpacing: 4,
-};
-
-const subtitleStyle = {
-  fontSize: { xs: "1rem", md: "1.5rem" },
-  fontFamily: "Montserrat, sans-serif",
-  fontWeight: 400,
-  letterSpacing: 2,
-  color: "inherit",
-  
-};
+import { titleStyle, subtitleStyle } from "./contactPageStyle";
 
 export default function ContactPage() {
   return (
@@ -53,7 +39,6 @@ export default function ContactPage() {
             rel="noopener noreferrer"
             sx={{
               ...subtitleStyle,
-
               px: 1,
             }}
           >
