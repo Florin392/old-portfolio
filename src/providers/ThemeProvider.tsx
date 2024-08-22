@@ -35,7 +35,7 @@ export default function ThemeProvider({ children }: ThemeProviderType) {
       if (
         location.pathname === AppRoutes.Home ||
         location.pathname === AppRoutes.Error ||
-        location.pathname.startsWith(AppRoutes.WorkOnlineStore)
+        location.pathname.startsWith("/project/")
       ) {
         setThemePalette({
           background: {
