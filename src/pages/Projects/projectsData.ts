@@ -1,8 +1,8 @@
-import { ONNLINE_STORE_URL } from "../../constants/urls";
 import {
   plantStoreHomePageImage,
   plantStoreMultiplePagesImage,
-} from "../../assets";
+} from "@assets/index";
+import { ONNLINE_STORE_URL } from "@constants/urls";
 
 export const projectsData: Record<
   string,

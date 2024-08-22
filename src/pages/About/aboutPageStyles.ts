@@ -1,4 +1,4 @@
-import { baseButtonStyle, baseStyle } from "../../constants/baseStyle";
+import { baseStyle, baseButtonStyle } from "@constants/baseStyle";
 
 export const aboutTitleStyle = {
   ...baseStyle,

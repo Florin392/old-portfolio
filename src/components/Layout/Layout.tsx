@@ -1,8 +1,8 @@
 import { Outlet, useLocation } from "react-router-dom";
-import NavigationBar from "../NavigationBar/NavigationBar";
 import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import "./layout.css";
+import NavigationBar from "@components/NavigationBar/NavigationBar";
 
 export default function Layout() {
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -12,6 +12,7 @@ export default function Layout() {
   useEffect(() => {
     if (!isInitialLoad) {
       setIsTransitioning(true);
+      window.scrollTo(0, 0);
       setTimeout(() => {
         setIsTransitioning(false);
       }, 1500);

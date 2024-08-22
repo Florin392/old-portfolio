@@ -1,4 +1,4 @@
-import { baseStyle } from "../../constants/baseStyle";
+import { baseStyle } from "@constants/baseStyle";
 
 export const workTitleStyle = {
   ...baseStyle,

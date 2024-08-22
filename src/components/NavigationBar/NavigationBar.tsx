@@ -50,7 +50,7 @@ export default function NavigationBar() {
         rotate: { md: "180deg" },
         writingMode: { md: "vertical-rl" },
         width: { md: "4%" },
-        height: { md: "90%" },
+        height: { md: "95%" },
       }}
     >
       <Grid

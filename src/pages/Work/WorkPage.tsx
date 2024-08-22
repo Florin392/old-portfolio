@@ -1,13 +1,13 @@
+import { AppRoutes } from "@enums/AppRoutes";
 import { Grid, Typography } from "@mui/material";
+import { projectsData } from "@pages/Projects/projectsData";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { AppRoutes } from "../../enums/AppRoutes";
-import { projectsData } from "../Projects/projectsData";
 import {
-  projectNameCaptionStyle,
-  projectTitleStyle,
-  workDescriptionStyle,
   workTitleStyle,
+  workDescriptionStyle,
+  projectTitleStyle,
+  projectNameCaptionStyle,
 } from "./WorkPageStyle";
 
 export default function WorkPage() {
@@ -32,7 +32,7 @@ export default function WorkPage() {
           position={{ md: "fixed" }}
           top={{ md: "40%", xxl: "60%" }}
           height={{ md: "100vh" }}
-          pt={{ xs: 10, md: 0 }}
+          pt={{ xs: 8, md: 0 }}
         >
           <Grid item xs={12} pr={2}>
             <Typography py={2} sx={workTitleStyle}>
@@ -46,7 +46,7 @@ export default function WorkPage() {
         </Grid>
       </Grid>
 
-      <Grid item xs={12} md={6} py={{ xs: 2, md: 20 }}>
+      <Grid item xs={12} md={6} py={{ xs: 4, md: 20 }}>
         {Object.keys(projectsData).map((projectId) => (
           <Grid item xs={12} py={{ xs: 0, md: 2 }} key={projectId}>
             <Typography

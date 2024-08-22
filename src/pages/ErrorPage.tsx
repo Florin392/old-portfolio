@@ -1,9 +1,8 @@
-import { Container, Typography, Button } from "@mui/material";
+import { baseStyle, baseButtonStyle } from "@constants/baseStyle";
+import { AppRoutes } from "@enums/AppRoutes";
+import { Container, Typography, Button, useTheme } from "@mui/material";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { AppRoutes } from "../enums/AppRoutes";
-import { baseButtonStyle, baseStyle } from "../constants/baseStyle";
-import { useTheme } from "@mui/material";
 
 export default function ErrorPage() {
   const theme = useTheme();

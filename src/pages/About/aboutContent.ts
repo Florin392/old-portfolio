@@ -1,7 +1,7 @@
 import {
   LINKEDIN_URL_CATALIN_MARIN,
   LINKEDIN_URL_JOSE_CARLOS,
-} from "../../constants/urls";
+} from "@constants/urls";
 
 export const aboutContent = {
   title: "About",
