@@ -12,10 +12,9 @@ export default function Layout() {
   useEffect(() => {
     if (!isInitialLoad) {
       setIsTransitioning(true);
-      window.scrollTo(0, 0);
       setTimeout(() => {
         setIsTransitioning(false);
-      }, 1500);
+      }, 1200);
     } else {
       setIsInitialLoad(false);
     }
@@ -23,21 +22,24 @@ export default function Layout() {
 
   return (
     <>
-      {isTransitioning && <div className="full-screen-overlay" />}
-      <Grid container>
-        <Grid item xs={12} md={0.5} py={1} mx={{ xs: 2, md: 0 }}>
-          <NavigationBar />
+      {isTransitioning ? (
+        <div className="full-screen-overlay" />
+      ) : (
+        <Grid container>
+          <Grid item xs={12} md={0.5} py={1} mx={{ xs: 2, md: 0 }}>
+            <NavigationBar />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={11.5}
+            mx={{ xs: 2, md: 0 }}
+            px={{ xs: 2, sm: 4, md: 8, lg: 14, xxl: 20 }}
+          >
+            <Outlet />
+          </Grid>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={11.5}
-          mx={{ xs: 2, md: 0 }}
-          px={{ xs: 2, sm: 4, md: 8, lg: 14, xxl: 20 }}
-        >
-          <Outlet />
-        </Grid>
-      </Grid>
+      )}
     </>
   );
 }
