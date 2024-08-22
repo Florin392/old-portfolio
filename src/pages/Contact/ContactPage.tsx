@@ -1,5 +1,5 @@
+import { CONTACT_EMAIL, LINKEDIN_URL, GITHUB_URL } from "@constants/urls";
 import { Grid, Typography } from "@mui/material";
-import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "../../constants/urls";
 import { titleStyle, subtitleStyle } from "./contactPageStyle";
 
 export default function ContactPage() {

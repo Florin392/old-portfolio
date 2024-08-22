@@ -1,4 +1,4 @@
-import { baseStyle } from "../../constants/baseStyle";
+import { baseStyle } from "@constants/baseStyle";
 
 export const titleStyle = {
   fontSize: { xs: "10rem", md: "22rem", lg: "26rem", xl: "32rem" },

@@ -1,5 +1,5 @@
 import { Grid, Typography } from "@mui/material";
-import { AppRoutes } from "../../enums/AppRoutes";
+
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -7,6 +7,7 @@ import {
   homeRightSectionStyle,
   homeTitleStyle,
 } from "./homePageStyle";
+import { AppRoutes } from "@enums/AppRoutes";
 
 export default function HomePage() {
   const navigation = useNavigate();

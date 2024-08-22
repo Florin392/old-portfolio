@@ -1,18 +1,18 @@
-import { Button, Grid, Typography } from "@mui/material";
-import { useCallback, useEffect, useRef, useState } from "react";
+import ContentImage from "@components/ContentImage";
+import { HighlightedText } from "@components/HighlightedText";
+import NewLineSplitText from "@components/NewLineSplitText ";
+import { baseButtonStyle } from "@constants/baseStyle";
+import { Grid, Typography, Button } from "@mui/material";
+import { useRef, useState, useEffect, useCallback } from "react";
 import {
+  projectTitleStyle,
+  projectSubTitleStyle,
+  projectSummaryTitleStyle,
+  projectSummaryDescriptionStyle,
   projectSummaryDescriptionUrlStyle,
   projectDescriptionStyle,
-  projectSubTitleStyle,
-  projectSummaryDescriptionStyle,
-  projectSummaryTitleStyle,
   projectCheckItOutStyle,
-  projectTitleStyle,
 } from "./projectPageSkeletonStyles";
-import { baseButtonStyle } from "../../../constants/baseStyle";
-import NewLineSplitText from "../../../components/NewLineSplitText ";
-import { HighlightedText } from "../../../components/HighlightedText";
-import ContentImage from "../../../components/ContentImage";
 
 export interface ProjectPageSkeletonProps {
   projectTitle: string;
@@ -75,7 +75,7 @@ export default function ProjectPageSkeleton({
         sx={{
           background: "#000000",
         }}
-        height={{ xs: "50vh", md: "75vh" }}
+        height="75vh"
       >
         {/* ---------------------------------- Title ---------------------------------- */}
         <Typography

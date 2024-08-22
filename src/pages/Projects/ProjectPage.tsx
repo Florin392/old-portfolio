@@ -1,7 +1,6 @@
+import ErrorPage from "@pages/ErrorPage";
 import { useParams } from "react-router-dom";
-
 import { projectsData } from "./projectsData";
-import ErrorPage from "../ErrorPage";
 import ProjectPageSkeleton from "./ProjectPageSkeleton/ProjectPageSkeleton";
 
 export default function ProjectPage() {

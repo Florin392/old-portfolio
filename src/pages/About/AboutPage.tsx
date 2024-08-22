@@ -1,23 +1,23 @@
-import { Button, Grid, List, ListItem, Typography } from "@mui/material";
-import meImage from "../../assets/Florin_Iordache.png";
-import { useNavigate } from "react-router-dom";
+import ContentImage from "@components/ContentImage";
+import { HighlightedText } from "@components/HighlightedText";
+import { CV_URL } from "@constants/urls";
+import { AppRoutes } from "@enums/AppRoutes";
+import { Grid, Typography, List, ListItem, Button } from "@mui/material";
 import { useCallback } from "react";
-import { AppRoutes } from "../../enums/AppRoutes";
-import { CV_URL } from "../../constants/urls";
+import { useNavigate } from "react-router-dom";
+import { aboutContent } from "./aboutContent";
 import {
   aboutTitleStyle,
   aboutSubtitleStyle,
   aboutDescriptionStyle,
   aboutCategoryTitleStyle,
-  aboutKudosDescriptionStyle,
-  aboutKudosLinkStyle,
-  aboutButtonStyle,
   aboutExperienceSubTitleStyle,
   aboutExperienceListStyle,
+  aboutButtonStyle,
+  aboutKudosDescriptionStyle,
+  aboutKudosLinkStyle,
 } from "./aboutPageStyles";
-import { aboutContent } from "./aboutContent";
-import { HighlightedText } from "../../components/HighlightedText";
-import ContentImage from "../../components/ContentImage";
+import { FlorinIordachePhoto } from "@assets/index";
 
 export default function AboutPage() {
   const navigate = useNavigate();
@@ -142,7 +142,7 @@ export default function AboutPage() {
         width={{ md: "360px", lg: "400px" }}
       >
         <ContentImage
-          src={meImage}
+          src={FlorinIordachePhoto}
           alt="Photo of Florin Iordache, Frontend Developer"
         />
       </Grid>
