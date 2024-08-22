@@ -75,7 +75,7 @@ export default function ProjectPageSkeleton({
         sx={{
           background: "#000000",
         }}
-        height="75vh"
+        height="70vh"
       >
         {/* ---------------------------------- Title ---------------------------------- */}
         <Typography
