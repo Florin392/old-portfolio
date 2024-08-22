@@ -12,7 +12,6 @@ export default function Layout() {
   useEffect(() => {
     if (!isInitialLoad) {
       setIsTransitioning(true);
-      window.scrollTo(0, 0);
       setTimeout(() => {
         setIsTransitioning(false);
       }, 1500);

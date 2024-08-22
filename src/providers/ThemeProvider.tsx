@@ -1,7 +1,7 @@
 import { createTheme, ThemeProvider as MuiThemeProvider } from "@mui/material";
 import { ReactNode, useMemo, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { AppRoutes } from "../enums/AppRoutes";
+import { AppRoutes } from "@enums/AppRoutes";
 
 interface ThemeProviderType {
   children: ReactNode;
