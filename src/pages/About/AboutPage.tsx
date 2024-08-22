@@ -3,19 +3,21 @@ import meImage from "../../assets/Florin_Iordache.png";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 import { AppRoutes } from "../../enums/AppRoutes";
+import { CV_URL } from "../../constants/urls";
 import {
-  CV_URL,
-  LINKEDIN_URL_CATALIN_MARIN,
-  LINKEDIN_URL_JOSE_CARLOS,
-} from "../../constants/urls";
-import {
-  titleStyle,
-  subtitleStyle,
-  descriptionStyle,
-  categoryStyle,
-  buttonStyle,
-  linkStyle,
+  aboutTitleStyle,
+  aboutSubtitleStyle,
+  aboutDescriptionStyle,
+  aboutCategoryTitleStyle,
+  aboutKudosDescriptionStyle,
+  aboutKudosLinkStyle,
+  aboutButtonStyle,
+  aboutExperienceSubTitleStyle,
+  aboutExperienceListStyle,
 } from "./aboutPageStyles";
+import { aboutContent } from "./aboutContent";
+import { HighlightedText } from "../../components/HighlightedText";
+import ContentImage from "../../components/ContentImage";
 
 export default function AboutPage() {
   const navigate = useNavigate();
@@ -32,124 +34,93 @@ export default function AboutPage() {
     <Grid container>
       <Grid item xs={12} md={10} lg={8} xl={6} zIndex={2}>
         <Grid pt={{ xs: 8, xxl: 0 }}>
-          <Typography sx={titleStyle}>About</Typography>
+          <Typography component="h1" sx={aboutTitleStyle}>
+            {aboutContent.title}
+          </Typography>
         </Grid>
         <Grid py={4} pr={{ xs: 2, md: 0 }}>
-          <Typography sx={subtitleStyle} pb={4}>
-            I'm Florin. A frontend developer
+          <Typography component="h2" sx={aboutSubtitleStyle} pb={4}>
+            {aboutContent.subTitle}
           </Typography>
-          <Typography sx={descriptionStyle} pt={2}>
-            I am a junior front-end developer with experience in React,
-            TypeScript, Redux, CSS and HTML.
-          </Typography>
-          <Typography sx={descriptionStyle} py={2}>
-            After 1.5 years of working in the field and two since I was first
-            introduced to the opportunity of learning how to code I am searching
-            for a new professional challenge and new ways to improve my
-            knowledge.
-          </Typography>
-          <Typography sx={descriptionStyle} py={2}>
-            I chose front-end because I am really good at visualising things and
-            thanks to an amazing teacher I discovered I enjoy creating products
-            which bring a lot of value from UI/UX perspective.
-          </Typography>
-
-          <Typography sx={descriptionStyle} py={2}>
-            Since hard skills are something that a lot of people can learn, I am
-            also bringing to the table the things that make me different: a lot
-            of passions which define me even more than the job-related skills. I
-            love hiking and nature so if you cannot reach me I am definitely
-            climbing something. I also enjoy running and cooking and I think
-            that the best way to end a hard day is taking a long walk with my
-            dog.
-          </Typography>
-          <Typography sx={descriptionStyle} py={2}>
-            That would be it. If you already checked my profile and consider I
-            might be a good fit just drop an email!
-          </Typography>
+          {aboutContent.description.map((parahraph, index) => (
+            <Typography key={index} sx={aboutDescriptionStyle} pt={2}>
+              {parahraph.text}
+            </Typography>
+          ))}
         </Grid>
 
         {/* --------------- Experience --------------- */}
         <Grid py={4}>
-          <Typography sx={categoryStyle}>Experience</Typography>
-          <List sx={descriptionStyle}>
-            <ListItem>- Degree in Industrial Engineering</ListItem>
-            <ListItem>
-              - 9 years experience in Frontend Development, Mechanical Design
-              Engineering , Sales
-            </ListItem>
-
-            <ListItem sx={{ py: 4 }}>Within those 9 years, I have:</ListItem>
-
-            <ListItem>- 1.5 years in Frontend Development</ListItem>
-            <ListItem>
-              - 5 years in Automotive, Mechanical Design Engineering
-            </ListItem>
-            <ListItem>- 2 years in Sales</ListItem>
+          <Typography sx={aboutCategoryTitleStyle}>
+            {aboutContent.experienceTitle}
+          </Typography>
+          <List sx={aboutDescriptionStyle}>
+            {aboutContent.experienceDescription.map((item, index) => {
+              return item.subTitle ? (
+                <Typography
+                  key={index}
+                  sx={aboutExperienceSubTitleStyle}
+                  py={2}
+                >
+                  {item.subTitle}
+                </Typography>
+              ) : (
+                <ListItem key={index} sx={aboutExperienceListStyle}>
+                  {item.text}
+                </ListItem>
+              );
+            })}
           </List>
         </Grid>
 
         {/* --------------- Skills --------------- */}
         <Grid py={4}>
-          <Typography sx={categoryStyle}>Skills</Typography>
+          <Typography sx={aboutCategoryTitleStyle}>
+            {aboutContent.skillsTitle}
+          </Typography>
           <Grid>
-            <Typography sx={descriptionStyle} px={2} pt={2} pb={4}>
-              Frontend Development / Agile Methodologie / Collaboration / HTML
-              and CSS, Redux Toolkit, REST, Jest, Material UI, GIT, Swagger,
-              Azure DevOps, Jira,
+            <Typography px={2} pt={2} pb={4}>
+              {HighlightedText(
+                aboutContent.skillsDescription,
+                aboutDescriptionStyle
+              )}
             </Typography>
 
-            <Button
-              variant={"contained"}
-              sx={buttonStyle}
-              onClick={handleOpenMyCv}
-            >
-              My CV
+            <Button sx={aboutButtonStyle} onClick={handleOpenMyCv}>
+              {aboutContent.myCvButtonLabel}
             </Button>
           </Grid>
         </Grid>
 
         {/*--------------- Kudos --------------- */}
         <Grid py={2} mb={{ xs: 6, md: 12 }}>
-          <Typography sx={categoryStyle}>Kudos</Typography>
-          <Typography sx={descriptionStyle} px={2} pt={2} pb={4}>
-            While this portfolio showcases the work I’ve created, it’s important
-            to acknowledge that my journey in frontend development has been
-            greatly influenced by the support and guidance of others.
-            <br /> A heartfelt thank you to{" "}
-            <Typography
-              component="a"
-              href={LINKEDIN_URL_CATALIN_MARIN}
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={linkStyle}
-            >
-              Cătălin Marin
-            </Typography>
-            , who taught me the fundamentals and complexities of development
-            with patience and clarity. Your mentorship has been a cornerstone of
-            my learning experience. <br />
-            I’d also like to express my gratitude to{" "}
-            <Typography
-              component="a"
-              href={LINKEDIN_URL_JOSE_CARLOS}
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={linkStyle}
-            >
-              José Carlos Muñoz Huerta
-            </Typography>
-            , whose deep knowledge and willingness to share knowledge have
-            profoundly shaped my skills. Your guidance and example have been
-            invaluable in my growth as a developer. To both of you, thank you
-            for helping me become the developer I am today.
+          <Typography sx={aboutCategoryTitleStyle}>
+            {aboutContent.kudosTitle}
           </Typography>
+          {aboutContent.kudosDescription.map((text, index) => (
+            <Typography key={index} sx={aboutKudosDescriptionStyle} px={2}>
+              {text.text}
+              {text.link && (
+                <>
+                  <Typography
+                    component="a"
+                    href={text.link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={aboutKudosLinkStyle}
+                  >
+                    {text.link.name}
+                  </Typography>
+                  {text.afterLinkText}
+                </>
+              )}
+            </Typography>
+          ))}
           <Button
-            variant={"contained"}
-            sx={buttonStyle}
+            sx={{ ...aboutButtonStyle, mt: 6 }}
             onClick={handleNavigateToContact}
           >
-            Contact me
+            {aboutContent.contactMeButtonLabel}
           </Button>
         </Grid>
       </Grid>
@@ -170,14 +141,9 @@ export default function AboutPage() {
         height={{ xs: "240px", sm: "280px", md: "400px", lg: "520px" }}
         width={{ md: "360px", lg: "400px" }}
       >
-        <img
+        <ContentImage
           src={meImage}
           alt="Photo of Florin Iordache, Frontend Developer"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
         />
       </Grid>
     </Grid>

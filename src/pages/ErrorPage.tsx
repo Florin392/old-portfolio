@@ -2,8 +2,11 @@ import { Container, Typography, Button } from "@mui/material";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppRoutes } from "../enums/AppRoutes";
+import { baseButtonStyle, baseStyle } from "../constants/baseStyle";
+import { useTheme } from "@mui/material";
 
 export default function ErrorPage() {
+  const theme = useTheme();
   const navigate = useNavigate();
 
   const handleNavigate = useCallback(() => {
@@ -19,16 +22,27 @@ export default function ErrorPage() {
         alignItems: "center",
         height: "100vh",
         textAlign: "center",
+        backgroundColor: theme.palette.background.default,
       }}
     >
-      <Typography variant="h3" gutterBottom>
+      <Typography sx={{ ...baseStyle, fontSize: "1.7rem" }} gutterBottom>
         Oops! Something went wrong.
       </Typography>
 
       <Button
         variant="contained"
-        color="primary"
-        sx={{ mt: 2 }}
+        sx={{
+          ...baseButtonStyle,
+          backgroundColor:
+            theme.palette.background.default === "#000000"
+              ? "#ffffff"
+              : "#000000",
+          color:
+            theme.palette.background.default === "#000000"
+              ? "#000000"
+              : "#ffffff",
+          mt: 4,
+        }}
         onClick={handleNavigate}
       >
         Go to Homepage

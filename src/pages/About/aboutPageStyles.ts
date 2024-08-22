@@ -1,4 +1,7 @@
-const titleStyle = {
+import { baseButtonStyle, baseStyle } from "../../constants/baseStyle";
+
+export const aboutTitleStyle = {
+  ...baseStyle,
   fontSize: {
     xs: "4rem",
     sm: "8rem",
@@ -8,60 +11,59 @@ const titleStyle = {
     xxl: "32rem",
   },
   letterSpacing: 6,
-  fontFamily: "Montserrat, sans-serif",
   fontWeight: 300,
 };
 
-const subtitleStyle = {
+export const aboutSubtitleStyle = {
+  ...baseStyle,
   fontSize: { xs: "2rem", md: "4rem" },
-  fontFamily: "Montserrat, sans-serif",
   fontWeight: 300,
   lineHeight: 1.5,
-  letterSpacing: 2,
 };
-const descriptionStyle = {
+
+export const aboutDescriptionStyle = {
+  ...baseStyle,
   fontSize: { xs: "1.1rem", md: "1.3rem" },
-  fontFamily: "Montserrat, sans-serif",
   fontWeight: { xs: 400, md: 300 },
   letterSpacing: 0.5,
   lineHeight: 1.8,
 };
-const categoryStyle = {
+
+export const aboutCategoryTitleStyle = {
   fontSize: { xs: "2.5rem", md: "4rem" },
   fontFamily: "Indie Flower, sans-serif",
   fontWeight: 400,
 };
-const buttonStyle = {
-  fontSize: "1.5rem",
-  fontFamily: "Montserrat, sans-serif",
-  fontWeight: 600,
-  textTransform: "none",
-  backgroundColor: "#E8EAF0",
-  color: "#000000",
-  borderRadius: "2rem",
-  transition: "padding .3s ease-in-out",
-  padding: "1rem 4rem",
-  marginLeft: 2,
-  ":hover": {
-    padding: "1rem 8rem",
-    backgroundColor: "#E8EAF0",
-  },
+
+export const aboutExperienceSubTitleStyle = {
+  ...aboutDescriptionStyle,
 };
-const linkStyle = {
+
+export const aboutExperienceListStyle = {
+  ...aboutDescriptionStyle,
+};
+
+export const aboutKudosDescriptionStyle = {
+  ...aboutDescriptionStyle,
+};
+
+export const aboutKudosLinkStyle = {
+  ...aboutDescriptionStyle,
   textDecoration: "underline",
   color: "inherit",
-  fontSize: "inherit",
-  letterSpacing: 1.5,
   ":hover": {
     textDecoration: "line-through",
   },
 };
 
-export {
-  linkStyle,
-  titleStyle,
-  subtitleStyle,
-  descriptionStyle,
-  categoryStyle,
-  buttonStyle,
+export const aboutButtonStyle = {
+  ...baseButtonStyle,
+  fontSize: "1.2rem",
+  fontWeight: 600,
+  backgroundColor: "#E8EAF0",
+  color: "#000000",
+  ":hover": {
+    padding: { xs: "1rem 6rem", md: "1rem 8rem" },
+    backgroundColor: "#E8EAF0",
+  },
 };
