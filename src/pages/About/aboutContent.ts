@@ -27,11 +27,12 @@ export const aboutContent = {
   experienceDescription: [
     { text: "Degree in Industrial Engineering" },
     {
-      text: "9 years experience in Frontend Development, Mechanical Design Engineering, Sales",
+      text: "Experience in Frontend Development, Mechanical Design Engineering, Sales",
     },
     { subTitle: "Within those 9 years, I have:" },
     { text: "1.5 years in Frontend Development" },
     { text: "5 years in Automotive, Mechanical Design Engineering" },
+    { text: "Half a year in Accounting and Logisics" },
     { text: "2 years in Sales" },
   ],
   skillsTitle: "Skills",
