@@ -4,7 +4,7 @@ export const LINKEDIN_URL: string =
 export const GITHUB_URL: string = "https://github.com/Florin392";
 
 export const CV_URL: string =
-  "https://drive.google.com/file/d/1Q7v94VaIGhS1mnJpOFYYzUajG-VUotDw/view?usp=drive_link";
+  "https://drive.google.com/file/d/11-rAcm8SdQZFguYTkyqUlcV7TkL0eliD/view?usp=drive_link";
 
 // ------------- Kudos -------------
 export const LINKEDIN_URL_CATALIN_MARIN: string =
